@@ -1,6 +1,7 @@
 # Features
 
-  {screenshot}
+  <img width="1440" alt="image" src="https://github.com/rootbakar/LUcek/assets/43517550/15e999f3-fd36-47b3-b117-af044a50b1e2">
+
 
   * check status code
   * check web title
@@ -64,10 +65,32 @@ Options:
 
 # Running lucek
 * Single target
-<img width="1440" alt="image" src="https://github.com/rootbakar/LUcek/assets/43517550/5f2ca1d2-5bdf-42eb-a29f-4ec8503aee85">
+```bash
+echo "progress28.com" | lucek
+```
+<img width="1440" alt="image" src="https://github.com/rootbakar/LUcek/assets/43517550/6623a780-b106-4bf4-aece-b0212e1ccdb0">
+
 
 * Multiple Target with subfinder
-  
+```bash
+subfinder -d progress28.com | lucek
+```
+<img width="1440" alt="Screenshot 2024-06-09 at 16 11 36" src="https://github.com/rootbakar/LUcek/assets/43517550/3849742b-67ed-4f32-8259-96a8503c9a87">
+
+
 * Multiple Target with file
-  
+```bash
+cat subs.txt | lucek
+```
+<img width="1440" alt="image" src="https://github.com/rootbakar/LUcek/assets/43517550/fd641a2b-8b70-41fa-bf5a-d21f73c34108">
+
+
 * Multiple Target with assetfinder
+```bash
+assetfinder -subs-only progress28.com | lucek
+```
+<img width="1440" alt="Screenshot 2024-06-09 at 16 14 43" src="https://github.com/rootbakar/LUcek/assets/43517550/a2137890-8682-4868-a2e8-8046ebca1837">
+
+# Acknowledgement
+This tools inspired by [httpx](https://github.com/projectdiscovery/httpx) and [httprobe](https://github.com/tomnomnom/httprobe)
+
