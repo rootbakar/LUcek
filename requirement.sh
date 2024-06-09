@@ -13,4 +13,4 @@ pip3.8 install -r requirements.txt
 
 # Copy LUcek.py to /usr/local/bin
 sudo chmod +x LUcek.py
-cp LUcek.py /usr/local/bin/lucek
+sudo cp LUcek.py /usr/local/bin/lucek
