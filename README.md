@@ -80,21 +80,24 @@ echo "hackerone.com" | lucek
 ```bash
 subfinder -d hackerone.com -silent | lucek
 ```
-<img width="1440" alt="Screenshot 2024-06-09 at 16 11 36" src="https://github.com/rootbakar/LUcek/assets/43517550/3849742b-67ed-4f32-8259-96a8503c9a87">
+<img width="1440" alt="image" src="https://github.com/rootbakar/LUcek/assets/43517550/48c690f4-97fa-4112-a69c-13c79ffab364">
+
 
 
 * Multiple Target with file
 ```bash
 cat subs.txt | lucek
 ```
-<img width="1440" alt="image" src="https://github.com/rootbakar/LUcek/assets/43517550/fd641a2b-8b70-41fa-bf5a-d21f73c34108">
+<img width="1440" alt="image" src="https://github.com/rootbakar/LUcek/assets/43517550/f07505cd-c46e-47e1-b92a-211522ba1f3f">
+
 
 
 * Multiple Target with assetfinder
 ```bash
 assetfinder -subs-only hackerone.com | lucek
 ```
-<img width="1440" alt="Screenshot 2024-06-09 at 16 14 43" src="https://github.com/rootbakar/LUcek/assets/43517550/a2137890-8682-4868-a2e8-8046ebca1837">
+<img width="1440" alt="image" src="https://github.com/rootbakar/LUcek/assets/43517550/df3e756b-f6c9-4793-ac47-1148a56b82f1">
+
 
 * Other command
 ```bash
