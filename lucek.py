@@ -72,7 +72,7 @@ def format_result(output_type, colored_status_code, url, colored_title):
         return f'[{colored_status_code}] {url} [{colored_title}]'
 
 def main():
-    parser = argparse.ArgumentParser(description="Alive URL Check v1")
+    parser = argparse.ArgumentParser(description="Alive URL Check by rootbakar")
     parser.add_argument("-ms", "--filter-status", type=str, help="Filter by status code(s), e.g., -ms 200 or -ms 200,302,404")
     parser.add_argument("-t", "--max-threads", type=int, default=50, help="Max threads to use (default: 50)")
     parser.add_argument("-f", "--input-file", type=str, help="Input file name")
@@ -80,6 +80,7 @@ def main():
     parser.add_argument("-os", "--output-status", type=str, help="Output file name (default: results.txt) with only status code and URL")
     parser.add_argument("-ot", "--output-title", type=str, help="Output file name (default: results.txt) with only URL and title")
     parser.add_argument("-ou", "--output-url", type=str, help="Output file name (default: results.txt) with only URL")
+    parser.add_argument("--version", action="store_true", help="Display the current version of LUcek")
 
     args = parser.parse_args()
 
@@ -93,6 +94,7 @@ def main():
     figlet_text = pyfiglet.figlet_format("RB - LUcek")
     print(figlet_text)
     print("Alive URL Check by rootbakar\n")
+    print(f"{Fore.BLUE}[INF]{Style.RESET_ALL} Current LUcek version v1.0.0 (latest)\n")
 
     urls = []
 
