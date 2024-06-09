@@ -84,22 +84,16 @@ def update_script():
     try:
         url = "https://raw.githubusercontent.com/rootbakar/LUcek/main/lucek.py"
 
-        # Download the new script with progress bar disabled
-        response = requests.get(url, stream=True)
-        total_size = int(response.headers.get('content-length', 0))
-        block_size = 1024  # 1 Kilobyte
+        response = requests.get(url)
+        if response.status_code == 200:
+            with open(script_path, "wb") as file:
+                file.write(response.content)
 
-        with open(script_path, "wb") as file, tqdm(
-            total=total_size, unit='B', unit_scale=True, desc="Downloading LUcek", ncols=100, disable=True
-        ) as pbar:
-            for data in response.iter_content(block_size):
-                pbar.update(len(data))
-                file.write(data)
-
-        # Ensure the new script is executable
-        os.chmod(script_path, 0o755)
-
-        print(f"{Fore.GREEN}Update completed successfully.{Style.RESET_ALL}")
+            # Ensure the new script is executable
+            os.chmod(script_path, 0o755)
+            print(f"{Fore.GREEN}Update completed successfully.{Style.RESET_ALL}")
+        else:
+            print(f"{Fore.RED}Failed to fetch the latest script from GitHub. Status code: {response.status_code}{Style.RESET_ALL}")
     except Exception as e:
         print(f"{Fore.RED}Failed to update script: {e}{Style.RESET_ALL}")
 
@@ -143,7 +137,7 @@ def main():
     parser.add_argument("-ot", "--output-title", type=str, help="Output file name (default: results.txt) with only URL and title")
     parser.add_argument("-ou", "--output-url", type=str, help="Output file name (default: results.txt) with only URL")
     parser.add_argument("--version", action="store_true", help="Display the current version of LUcek")
-    parser.add_argument("--update", action="store_true", help="Update the script to the latest version")
+    parser.add_argument("--update", action="store_true", help="Update the LUcek script to the latest version")
 
     args = parser.parse_args()
 
@@ -151,14 +145,13 @@ def main():
         update_script()
         return
 
-    # Get the version status
     version_status = check_version_status()
 
     # Display figlet
     figlet_text = pyfiglet.figlet_format("RB - LUcek")
     print(figlet_text)
-    print("alive URL check by rootbakar.\n")
-    print(f"[{Fore.BLUE}INF{Style.RESET_ALL}] Current LUcek version 1.0.2 [{version_status}]\n")
+    print("alive URL check by rootbakar\n")
+    print(f"[{Fore.BLUE}INF{Style.RESET_ALL}] Current LUcek version v1.0.1 [{version_status}]\n")
 
     input_file = args.input_file
     output_file = args.output_file or args.output_status or args.output_title or args.output_url or "results.txt"
