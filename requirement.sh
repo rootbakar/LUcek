@@ -1,4 +1,3 @@
-```bash
 #!/bin/bash
 
 # Install Python 3 if not installed
