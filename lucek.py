@@ -150,7 +150,7 @@ def main():
     # Display figlet
     figlet_text = pyfiglet.figlet_format("RB - LUcek")
     print(figlet_text)
-    print("alive URL check by rootbakar.\n")
+    print("alive URL check by rootbakar\n")
     print(f"[{Fore.BLUE}INF{Style.RESET_ALL}] Current LUcek version v1.0.3 [{version_status}]\n")
 
     input_file = args.input_file
