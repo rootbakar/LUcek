@@ -17,13 +17,16 @@ def ensure_schema(url):
         url = 'http://' + url
     return url
 
+def is_html(content):
+    return bool(BeautifulSoup(content, "html.parser").find())
+
 def check_url_status(url):
     url = ensure_schema(url)
     try:
         response = requests.get(url, timeout=10)
         status_code = response.status_code
         protocol = 'HTTPS' if response.url.startswith('https://') else 'HTTP'
-        if status_code == 200:
+        if status_code == 200 and is_html(response.text):
             soup = BeautifulSoup(response.text, 'html.parser')
             title = soup.title.string if soup.title else 'No title found'
         else:
@@ -72,7 +75,7 @@ def format_result(output_type, colored_status_code, url, colored_title):
         return f'[{colored_status_code}] {url} [{colored_title}]'
 
 def main():
-    parser = argparse.ArgumentParser(description="Alive URL Check by rootbakar")
+    parser = argparse.ArgumentParser(description="Alive URL Check v1")
     parser.add_argument("-ms", "--filter-status", type=str, help="Filter by status code(s), e.g., -ms 200 or -ms 200,302,404")
     parser.add_argument("-t", "--max-threads", type=int, default=50, help="Max threads to use (default: 50)")
     parser.add_argument("-f", "--input-file", type=str, help="Input file name")
@@ -93,8 +96,8 @@ def main():
     # Display figlet
     figlet_text = pyfiglet.figlet_format("RB - LUcek")
     print(figlet_text)
-    print("alive URL check by rootbakar\n")
-    print(f"{Fore.BLUE}[INF]{Style.RESET_ALL} Current LUcek version v1.0.0 (latest)\n")
+    print("Alive URL Check by rootbakar\n")
+    print(f"[{Fore.BLUE}INF{Style.RESET_ALL}] Current LUcek version v1.0.0 [{Fore.BLUE}latest{Style.RESET_ALL}]\n")
 
     urls = []
 
@@ -116,7 +119,7 @@ def main():
             if result is not None:
                 url, protocol, status_code, title = result
                 if status_code is not None and (filter_status is None or status_code in filter_status):
-                    if "Failed to open page" not in title and title != "52 Mercusuar - Situs Tidak Ditemukan" and title != "Mercusuar - Situs Tidak Ditemukan":
+                    if title and "Failed to open page" not in title and title != "52 Mercusuar - Situs Tidak Ditemukan" and title != "Mercusuar - Situs Tidak Ditemukan":
                         colored_status_code, colored_title = colorize_status_code_and_title(status_code, title)
                         formatted_result = format_result(output_type, colored_status_code, url, colored_title)
                         results.append(formatted_result)
