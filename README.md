@@ -23,12 +23,12 @@ git clone https://github.com/rootbakar/LUcek.git
 ```bash
 cd LUcek
 ```
-* Install requirement.sh (For Linux)
+* Install requirement-linux.sh (For Linux)
 ```bash
-bash requirement.sh
+bash requirement-linux.sh
 ```
 
-* Install requirement.sh (For Mac)
+* Install requirement-mac.sh (For Mac)
 ```bash
 bash requirement-mac.sh
 ```
