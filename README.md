@@ -1,8 +1,6 @@
 # Features
 
-<img width="1440" alt="image" src="https://github.com/rootbakar/LUcek/assets/43517550/ad81bfc7-e00f-4bec-973f-2eaf329bdae9">
-
-
+<img width="1440" alt="image" src="https://github.com/rootbakar/LUcek/assets/43517550/00a9d268-2086-4cf7-b778-144633d89093">
 
   * check status code
   * check web title
@@ -72,14 +70,15 @@ Options:
 # Running lucek
 * Single target
 ```bash
-echo "progress28.com" | lucek
+echo "hackerone.com" | lucek
 ```
-<img width="1440" alt="image" src="https://github.com/rootbakar/LUcek/assets/43517550/6623a780-b106-4bf4-aece-b0212e1ccdb0">
+<img width="1440" alt="image" src="https://github.com/rootbakar/LUcek/assets/43517550/d7a5774b-524b-4837-b73a-3176b87f1c7d">
+
 
 
 * Multiple Target with subfinder
 ```bash
-subfinder -d progress28.com | lucek
+subfinder -d hackerone.com -silent | lucek
 ```
 <img width="1440" alt="Screenshot 2024-06-09 at 16 11 36" src="https://github.com/rootbakar/LUcek/assets/43517550/3849742b-67ed-4f32-8259-96a8503c9a87">
 
@@ -93,33 +92,33 @@ cat subs.txt | lucek
 
 * Multiple Target with assetfinder
 ```bash
-assetfinder -subs-only progress28.com | lucek
+assetfinder -subs-only hackerone.com | lucek
 ```
 <img width="1440" alt="Screenshot 2024-06-09 at 16 14 43" src="https://github.com/rootbakar/LUcek/assets/43517550/a2137890-8682-4868-a2e8-8046ebca1837">
 
 * Other command
 ```bash
-assetfinder -subs-only progress28.com | lucek -ms 200
+assetfinder -subs-only hackerone.com | lucek -ms 200
 ```
 
 ```bash
-subfinder -d progress28.com | lucek -ms 200,301,403
+subfinder -d hackerone.com -silent | lucek -ms 200,301,403
 ```
 
 ```bash
-subfinder -d progress28.com | lucek -o all.txt
+subfinder -d hackerone.com -silent | lucek -o all.txt
 ```
 
 ```bash
-subfinder -d progress28.com | lucek -os only-status-code.txt
+subfinder -d hackerone.com -silent | lucek -os only-status-code.txt
 ```
 
 ```bash
-subfinder -d progress28.com | lucek -ot only-title.txt
+subfinder -d hackerone.com -silent | lucek -ot only-title.txt
 ```
 
 ```bash
-subfinder -d progress28.com | lucek -ou only-url.txt
+subfinder -d hackerone.com -silent | lucek -ou only-url.txt
 ```
 
 # Acknowledgement
