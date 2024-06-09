@@ -8,6 +8,7 @@ from concurrent.futures import ThreadPoolExecutor
 import time
 from colorama import Fore, Style, init
 import pyfiglet
+import re
 
 # Initialize colorama
 init()
@@ -18,7 +19,8 @@ def ensure_schema(url):
     return url
 
 def is_html(content):
-    return bool(BeautifulSoup(content, "html.parser").find())
+    """Check if the content contains basic HTML tags."""
+    return bool(re.search(r'<html.*?>.*?</html>', content, re.DOTALL | re.IGNORECASE))
 
 def check_url_status(url):
     url = ensure_schema(url)
