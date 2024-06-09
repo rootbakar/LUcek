@@ -1,8 +1,37 @@
-# LUcek
-This script checks the status of URLs to see if they are alive or not.
+# Features
 
-# usage
-lucek.py [-h] [-ms FILTER_STATUS] [-t MAX_THREADS] [-o OUTPUT_FILE] [-f INPUT_FILE]
+  {screenshot}
+
+  * check status code
+  * check web title
+  * print url with status code
+  * print url only
+  * print url with title
+  * print url with status code and title
+
+# LUcek
+`LUcek` is toolkit for checks the status of URLs to see if they are alive or not.
+
+# Installation Instructions
+`LUcek` requires python3.8 and pip3.8 to install successfully. Run the following command to get the repo: 
+
+* Clone the LUcek repo
+```bash
+git clone https://github.com/rootbakar/LUcek.git
+```
+* Change directory to LUcek
+```bash
+cd LUcek
+```
+* Install requirement.sh
+```bash
+bash requirement.sh
+```
+
+# Usage
+```bash
+lucek -h
+```
 
 Alive URL Check v1
 
