@@ -92,6 +92,31 @@ assetfinder -subs-only progress28.com | lucek
 ```
 <img width="1440" alt="Screenshot 2024-06-09 at 16 14 43" src="https://github.com/rootbakar/LUcek/assets/43517550/a2137890-8682-4868-a2e8-8046ebca1837">
 
+* Other command
+```bash
+assetfinder -subs-only progress28.com | lucek -ms 200
+```
+
+```bash
+subfinder -d progress28.com | lucek -ms 200,301,403
+```
+
+```bash
+subfinder -d progress28.com | lucek -o all.txt
+```
+
+```bash
+subfinder -d progress28.com | lucek -os only-status-code.txt
+```
+
+```bash
+subfinder -d progress28.com | lucek -ot only-title.txt
+```
+
+```bash
+subfinder -d progress28.com | lucek -ou only-url.txt
+```
+
 # Acknowledgement
 This tools inspired by [httpx](https://github.com/projectdiscovery/httpx) and [httprobe](https://github.com/tomnomnom/httprobe)
 
