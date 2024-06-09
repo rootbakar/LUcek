@@ -93,7 +93,7 @@ def main():
     # Display figlet
     figlet_text = pyfiglet.figlet_format("RB - LUcek")
     print(figlet_text)
-    print("Alive URL Check by rootbakar\n")
+    print("alive URL check by rootbakar\n")
     print(f"{Fore.BLUE}[INF]{Style.RESET_ALL} Current LUcek version v1.0.0 (latest)\n")
 
     urls = []
