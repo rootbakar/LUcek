@@ -10,7 +10,7 @@ if ! command -v python3.12 &>/dev/null; then
 fi
 
 # Install Python dependencies
-python3.12 -m pip install -r requirements.txt
+python3.12 -m pip install -r requirements.txt --break-system-packages
 
 # Copy lucek.py to /usr/local/bin
 sudo chmod +x lucek.py
