@@ -9,6 +9,8 @@ import time
 from colorama import Fore, Style, init
 import pyfiglet
 import re
+import os
+from tqdm import tqdm
 
 # Initialize colorama
 init()
@@ -76,6 +78,61 @@ def format_result(output_type, colored_status_code, url, colored_title):
     else:
         return f'[{colored_status_code}] {url} [{colored_title}]'
 
+def update_script():
+    script_path = "/usr/local/bin/lucek"
+    print(f"{Fore.BLUE}Updating LUcek script at {script_path}...{Style.RESET_ALL}")
+    try:
+        url = "https://raw.githubusercontent.com/rootbakar/LUcek/main/lucek.py"
+
+        # Download the new script with progress bar disabled
+        response = requests.get(url, stream=True)
+        total_size = int(response.headers.get('content-length', 0))
+        block_size = 1024  # 1 Kilobyte
+
+        with open(script_path, "wb") as file, tqdm(
+            total=total_size, unit='B', unit_scale=True, desc="Downloading LUcek", ncols=100, disable=True
+        ) as pbar:
+            for data in response.iter_content(block_size):
+                pbar.update(len(data))
+                file.write(data)
+
+        # Ensure the new script is executable
+        os.chmod(script_path, 0o755)
+
+        print(f"{Fore.GREEN}Update completed successfully.{Style.RESET_ALL}")
+    except Exception as e:
+        print(f"{Fore.RED}Failed to update script: {e}{Style.RESET_ALL}")
+
+def get_github_script():
+    try:
+        url = "https://raw.githubusercontent.com/rootbakar/LUcek/main/lucek.py"
+        response = requests.get(url)
+        if response.status_code == 200:
+            return response.text
+        else:
+            print(f"{Fore.RED}Failed to fetch the latest script from GitHub. Status code: {response.status_code}{Style.RESET_ALL}")
+        return None
+    except Exception as e:
+        print(f"{Fore.RED}Failed to fetch latest version: {e}{Style.RESET_ALL}")
+        return None
+
+def check_version_status():
+    github_script = get_github_script()
+    if github_script:
+        local_script_path = "/usr/local/bin/lucek"
+        try:
+            with open(local_script_path, "r") as file:
+                local_script = file.read()
+            if local_script == github_script:
+                return f"{Fore.BLUE}latest{Style.RESET_ALL}"
+            else:
+                return f"{Fore.RED}outdated{Style.RESET_ALL}"
+        except Exception as e:
+            print(f"{Fore.RED}Failed to read local script: {e}{Style.RESET_ALL}")
+            return f"{Fore.RED}unknown{Style.RESET_ALL}"
+    else:
+        return f"{Fore.RED}unknown{Style.RESET_ALL}"
+
 def main():
     parser = argparse.ArgumentParser(description="alive URL check by rootbakar")
     parser.add_argument("-ms", "--filter-status", type=str, help="Filter by status code(s), e.g., -ms 200 or -ms 200,302,404")
@@ -86,20 +143,28 @@ def main():
     parser.add_argument("-ot", "--output-title", type=str, help="Output file name (default: results.txt) with only URL and title")
     parser.add_argument("-ou", "--output-url", type=str, help="Output file name (default: results.txt) with only URL")
     parser.add_argument("--version", action="store_true", help="Display the current version of LUcek")
+    parser.add_argument("--update", action="store_true", help="Update the script to the latest version")
 
     args = parser.parse_args()
+
+    if args.update:
+        update_script()
+        return
+
+    # Get the version status
+    version_status = check_version_status()
+
+    # Display figlet
+    figlet_text = pyfiglet.figlet_format("RB - LUcek")
+    print(figlet_text)
+    print("alive URL check by rootbakar\n")
+    print(f"[{Fore.BLUE}INF{Style.RESET_ALL}] Current LUcek version [{version_status}]\n")
 
     input_file = args.input_file
     output_file = args.output_file or args.output_status or args.output_title or args.output_url or "results.txt"
     max_threads = args.max_threads
     filter_status = [int(code) for code in args.filter_status.split(',')] if args.filter_status else None
     output_type = '-o' if args.output_file else '-os' if args.output_status else '-ot' if args.output_title else '-ou' if args.output_url else '-o'
-
-    # Display figlet
-    figlet_text = pyfiglet.figlet_format("RB - LUcek")
-    print(figlet_text)
-    print("alive URL check by rootbakar.\n")
-    print(f"[{Fore.BLUE}INF{Style.RESET_ALL}] Current LUcek version v1.0.1 [{Fore.BLUE}latest{Style.RESET_ALL}]\n")
 
     urls = []
 
@@ -132,12 +197,7 @@ def main():
 
     with open(output_file, 'w') as file:
         for result in results:
-            # Remove color codes for writing to the file
-            clean_result = result.replace(Fore.GREEN, '').replace(Fore.RED, '').replace(Fore.YELLOW, '').replace(Fore.BLUE, '').replace(Fore.MAGENTA, '').replace(Style.RESET_ALL, '')
-            file.write(clean_result + '\n')
+            file.write(result + '\n')
 
-    print(f'\nResults saved to {Fore.GREEN}{output_file}{Style.RESET_ALL}')
-    print(f'Total time taken: {total_time:.2f} seconds')
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
