@@ -158,7 +158,7 @@ def main():
     figlet_text = pyfiglet.figlet_format("RB - LUcek")
     print(figlet_text)
     print("alive URL check by rootbakar\n")
-    print(f"[{Fore.BLUE}INF{Style.RESET_ALL}] Current LUcek version [{version_status}]\n")
+    print(f"[{Fore.BLUE}INF{Style.RESET_ALL}] Current LUcek version 1.0.2 [{version_status}]\n")
 
     input_file = args.input_file
     output_file = args.output_file or args.output_status or args.output_title or args.output_url or "results.txt"
