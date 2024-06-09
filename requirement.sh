@@ -1,16 +1,16 @@
 #!/bin/bash
 
-# Install Python 3.8 if not installed
-if ! command -v python3.8 &>/dev/null; then
-    echo "Python 3.8 is not installed. Installing..."
+# Install Python 3.12 if not installed
+if ! command -v python3.12 &>/dev/null; then
+    echo "Python 3.12 is not installed. Installing..."
     sudo apt update -y
-    sudo apt install python3.8 -y
+    sudo apt install python3.12 -y
     wget https://bootstrap.pypa.io/get-pip.py
-    python3.8 get-pip.py
+    python3.12 get-pip.py
 fi
 
 # Install Python dependencies
-pip3.8 install -r requirements.txt
+python3.12 -m pip install -r requirements.txt
 
 # Copy lucek.py to /usr/local/bin
 sudo chmod +x lucek.py
