@@ -103,26 +103,38 @@ assetfinder -subs-only hackerone.com | lucek
 ```bash
 assetfinder -subs-only hackerone.com | lucek -ms 200
 ```
+<img width="1440" alt="image" src="https://github.com/rootbakar/LUcek/assets/43517550/4da76a8e-97c6-4d99-b020-8339cd943f88">
+
 
 ```bash
-subfinder -d hackerone.com -silent | lucek -ms 200,301,403
+subfinder -d hackerone.com -silent | lucek -ms 200,404
 ```
+<img width="1440" alt="image" src="https://github.com/rootbakar/LUcek/assets/43517550/0e67ac24-9a08-42dd-8224-1521788eb114">
+
 
 ```bash
 subfinder -d hackerone.com -silent | lucek -o all.txt
 ```
+<img width="1440" alt="image" src="https://github.com/rootbakar/LUcek/assets/43517550/a04f807f-9ded-455e-9524-33fcf52141a9">
+
 
 ```bash
 subfinder -d hackerone.com -silent | lucek -os only-status-code.txt
 ```
+<img width="1440" alt="image" src="https://github.com/rootbakar/LUcek/assets/43517550/a4d24996-59a1-49f3-9868-77e982a7f301">
+
 
 ```bash
 subfinder -d hackerone.com -silent | lucek -ot only-title.txt
 ```
+<img width="1440" alt="image" src="https://github.com/rootbakar/LUcek/assets/43517550/752f2e92-44fe-4af4-ae14-a5a9a29ff3a5">
+
 
 ```bash
 subfinder -d hackerone.com -silent | lucek -ou only-url.txt
 ```
+<img width="1440" alt="image" src="https://github.com/rootbakar/LUcek/assets/43517550/ae59bf5f-bcc3-46c1-acf9-c10855e3089b">
+
 
 # Acknowledgement
 This tools inspired by [httpx](https://github.com/projectdiscovery/httpx) and [httprobe](https://github.com/tomnomnom/httprobe)
