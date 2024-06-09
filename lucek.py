@@ -157,8 +157,8 @@ def main():
     # Display figlet
     figlet_text = pyfiglet.figlet_format("RB - LUcek")
     print(figlet_text)
-    print("alive URL check by rootbakar.\n")
-    print(f"[{Fore.BLUE}INF{Style.RESET_ALL}] Current LUcek version 1.0.2 [{version_status}]\n")
+    print("alive URL check by rootbakar\n")
+    print(f"[{Fore.BLUE}INF{Style.RESET_ALL}] Current LUcek version 1.0.1 [{version_status}]\n")
 
     input_file = args.input_file
     output_file = args.output_file or args.output_status or args.output_title or args.output_url or "results.txt"
@@ -197,7 +197,12 @@ def main():
 
     with open(output_file, 'w') as file:
         for result in results:
-            file.write(result + '\n')
+            # Remove color codes for writing to the file
+            clean_result = result.replace(Fore.GREEN, '').replace(Fore.RED, '').replace(Fore.YELLOW, '').replace(Fore.BLUE, '').replace(Fore.MAGENTA, '').replace(Style.RESET_ALL, '')
+            file.write(clean_result + '\n')
 
-if __name__ == "__main__":
+    print(f'\nResults saved to {Fore.GREEN}{output_file}{Style.RESET_ALL}')
+    print(f'Total time taken: {total_time:.2f} seconds')
+
+if __name__ == '__main__':
     main()
