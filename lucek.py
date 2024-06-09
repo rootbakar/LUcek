@@ -77,7 +77,7 @@ def format_result(output_type, colored_status_code, url, colored_title):
         return f'[{colored_status_code}] {url} [{colored_title}]'
 
 def main():
-    parser = argparse.ArgumentParser(description="Alive URL Check v1")
+    parser = argparse.ArgumentParser(description="alive URL check by rootbakar")
     parser.add_argument("-ms", "--filter-status", type=str, help="Filter by status code(s), e.g., -ms 200 or -ms 200,302,404")
     parser.add_argument("-t", "--max-threads", type=int, default=50, help="Max threads to use (default: 50)")
     parser.add_argument("-f", "--input-file", type=str, help="Input file name")
