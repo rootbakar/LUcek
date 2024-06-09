@@ -99,7 +99,7 @@ def main():
     figlet_text = pyfiglet.figlet_format("RB - LUcek")
     print(figlet_text)
     print("alive URL check by rootbakar\n")
-    print(f"[{Fore.BLUE}INF{Style.RESET_ALL}] Current LUcek version v1.0.0 [{Fore.BLUE}latest{Style.RESET_ALL}]\n")
+    print(f"[{Fore.BLUE}INF{Style.RESET_ALL}] Current LUcek version v1.0.1 [{Fore.BLUE}latest{Style.RESET_ALL}]\n")
 
     urls = []
 
