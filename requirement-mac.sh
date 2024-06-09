@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Install Python 3.8 if not installed
+# Install Python 3.12 if not installed
 if ! command -v python3 &>/dev/null; then
-    echo "Python 3 is not installed. Installing..."
+    echo "Python 3.12 is not installed. Installing..."
     brew install python@3.12 #if not installed
     brew reinstall python@3.12 #if installed
     brew cleanup python@3.12
