@@ -15,7 +15,7 @@
 `LUcek` is toolkit for checks the status of URLs to see if they are alive or not.
 
 # Installation Instructions
-`LUcek` requires python3.8 and pip3.8 to install successfully. Run the following command to get the repo: 
+`LUcek` requires python3.12 and pip3.12 to install successfully. Run the following command to get the repo: 
 
 * Clone the LUcek repo
 ```bash
