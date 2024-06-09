@@ -32,24 +32,32 @@ bash requirement.sh
 ```bash
 lucek -h
 ```
+This will display help for the tool. Here are all the switches it supports.
 
-Alive URL Check v1
+```
+Usage:
+  lucek [options]
 
-# optional arguments:
+Options:
   -h, --help            show this help message and exit
-  
   -ms FILTER_STATUS, --filter-status FILTER_STATUS
-  
-                        Filter by status code(s), e.g., -ms 200 or -ms 200,302,404
-                        
+                        Filter by status code(s), e.g., -ms 200 or -ms
+                        200,302,404
   -t MAX_THREADS, --max-threads MAX_THREADS
-  
                         Max threads to use (default: 50)
-                        
-  -o OUTPUT_FILE, --output-file OUTPUT_FILE
-  
-                        Output file name (default: results.txt)
-                        
   -f INPUT_FILE, --input-file INPUT_FILE
-  
                         Input file name
+  -o OUTPUT_FILE, --output-file OUTPUT_FILE
+                        Output file name (default: results.txt) with
+                        full output
+  -os OUTPUT_STATUS, --output-status OUTPUT_STATUS
+                        Output file name (default: results.txt) with
+                        only status code and URL
+  -ot OUTPUT_TITLE, --output-title OUTPUT_TITLE
+                        Output file name (default: results.txt) with
+                        only URL and title
+  -ou OUTPUT_URL, --output-url OUTPUT_URL
+                        Output file name (default: results.txt) with
+                        only URL
+  --version             Display the current version of LUcek
+```
