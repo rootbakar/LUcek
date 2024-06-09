@@ -90,9 +90,9 @@ def main():
     output_type = '-o' if args.output_file else '-os' if args.output_status else '-ot' if args.output_title else '-ou' if args.output_url else '-o'
 
     # Display figlet
-    figlet_text = pyfiglet.figlet_format("RB - LUCEK")
+    figlet_text = pyfiglet.figlet_format("RB - LUcek")
     print(figlet_text)
-    print("Alive URL Check v1\n")
+    print("Alive URL Check by rootbakar\n")
 
     urls = []
 
