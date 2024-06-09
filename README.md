@@ -61,3 +61,13 @@ Options:
                         only URL
   --version             Display the current version of LUcek
 ```
+
+# Running lucek
+* Single target
+<img width="1440" alt="image" src="https://github.com/rootbakar/LUcek/assets/43517550/5f2ca1d2-5bdf-42eb-a29f-4ec8503aee85">
+
+* Multiple Target with subfinder
+  
+* Multiple Target with file
+  
+* Multiple Target with assetfinder
