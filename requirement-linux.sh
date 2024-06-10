@@ -5,8 +5,7 @@ if ! command -v python3.12 &>/dev/null; then
     echo "Python 3.12 is not installed. Installing..."
     sudo apt update -y
     sudo apt install python3.12 -y
-    wget https://bootstrap.pypa.io/get-pip.py
-    python3.12 get-pip.py
+    sudo apt install python3.12-pip
 fi
 
 # Install Python dependencies
