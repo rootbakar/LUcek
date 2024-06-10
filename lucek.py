@@ -91,6 +91,7 @@ def update_script():
 
             # Ensure the new script is executable
             os.chmod(script_path, 0o755)
+            os.system("python3.12 -m pip install tqdm")
             print(f"{Fore.GREEN}Update completed successfully.{Style.RESET_ALL}")
         else:
             print(f"{Fore.RED}Failed to fetch the latest script from GitHub. Status code: {response.status_code}{Style.RESET_ALL}")
