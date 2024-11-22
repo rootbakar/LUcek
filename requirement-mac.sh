@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install Python dependencies
-python3.11 -m pip install . --break-system-packages
+python3.11 -m pip install -r requirement.txt --break-system-packages
 
 # Copy lucek.py to /usr/local/bin
 chmod +x lucek.py
